@@ -2,8 +2,11 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from predict import predict_imgURL
 import time
 
-app = Flask(__name__)
+import os
 
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
+app = Flask(__name__)
 
 # @app.route("/", methods=['GET', 'POST'])
 # def landing_page():
@@ -28,21 +31,23 @@ def predict():
     result = req['imgURL']
     
     result = predict_imgURL(req['imgURL'])
-    print(result)
+    # print(result)
 #     print(request.method)
 
     # return redirect(url_for('result'))#/result{result}")
     # return redirect('http://127.0.0.1:5000')
-    time.sleep(2)
-    return redirect(f'/result/{str(result)}')
-    # return jsonify(str(result))
+    # time.sleep(2)
+    # return redirect(f'/result/{str(result)}')
+    print(result)
+    return jsonify(str(result))
 
     # return f"<img src={result} />"
 
-@app.route("/result/<result>")
-def result(result):
-    print(result)
-    return render_template("result.html", result=result)
+@app.route("/result")
+def result():
+    print(request.query_string)
+    model_output=request.args.get('model_output')
+    return render_template("result.html", result=model_output)
 
 
 if __name__ == "__main__":

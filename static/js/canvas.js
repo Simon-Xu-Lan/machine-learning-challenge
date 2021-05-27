@@ -98,7 +98,8 @@ window.onload = function () {
         imgURL: imgURL,
       })
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
+        window.location.replace(`/result?model_output=${response['data']}`)
       })
       .catch(function (error) {
         console.log(error);

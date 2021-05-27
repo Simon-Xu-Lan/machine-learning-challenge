@@ -16,50 +16,29 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body>
-    <!-- <div class="container" id="container">
-      <div class="row">
-        <div class="col-md-12 jumbotron text-center">
-          <h1>Machine Learning</h1>
-          <p>Handwriting detector</p>
-        </div>
+  <body style="background: lightcyan">
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Machine Learning</h1>
+        <h3>Handwriting reader</h3>
       </div>
       <div class="row">
-        <div class="col-md-3">
-          <div class="well">
-            <h5>Result:</h5>
-          </div>
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Display resulting here</h3>
-            </div>
-          </div>
+        <div style="border-width: 2px; border-color: black">
+          <canvas id="myCanvas"></canvas>
         </div>
-        <div class="col-md-9">
-          <canvas
-            id="myCanvas"
-            style="background: lightcyan; width: 600px; height: 600px"
-          ></canvas>
-        </div>
+        <div style="background: blue; height: 400px"></div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="bubble"></div>
-        </div>
+
+      <button type="button" id="saveBtn">
+        <!-- <a href="/result/">Save Image</a> -->
+      </button>
+
+      <div>
+        <h1>result:</h1>
+        <h1 id="result"></h1>
       </div>
-    </div> -->
-
-    <canvas id="myCanvas"></canvas>
-
-    <button type="button" id="saveBtn">
-      <!-- <a href="/result/">Save Image</a> -->
-    </button>
-
-    <div>
-      <h1>result:</h1>
-      <h1 id="result"></h1>
+      <div style="background: green; height: 100px">This is text area</div>
     </div>
-    <div style="background: green; height: 100px">This is text area</div>
 
     <script src="../static/js/canvas.js"></script>
   </body>

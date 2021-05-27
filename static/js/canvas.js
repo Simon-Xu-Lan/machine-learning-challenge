@@ -98,10 +98,9 @@ window.onload = function () {
         imgURL: imgURL,
       })
       .then(function (response) {
+        // window.location.replace(`/result?model_output=${response['data']}`);
         console.log(response);
-        // console.log(imgURL);
-        // result = document.getElementById('result');
-        // result.innerHTML = 'TEST Simon';
+        document.getElementById("result").innerHTML = response.data
       })
       .catch(function (error) {
         console.log(error);

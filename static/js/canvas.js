@@ -83,7 +83,7 @@ window.onload = function () {
   btnSave.addEventListener('click', function () {
     var imgURL = myCanvas.toDataURL('image/png');
     // GamepadButton.href = imgURL;
-    console.log(imgURL);
+    // console.log(imgURL);
 
     // var image = myCanvas
     //   .toDataURL('image/png')
@@ -99,6 +99,9 @@ window.onload = function () {
       })
       .then(function (response) {
         console.log(response);
+        // console.log(imgURL);
+        // result = document.getElementById('result');
+        // result.innerHTML = 'TEST Simon';
       })
       .catch(function (error) {
         console.log(error);

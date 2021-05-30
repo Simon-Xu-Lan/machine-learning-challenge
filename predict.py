@@ -54,5 +54,5 @@ def predict_imgURL(dataURL):
     result = model.predict_classes(img)
     
     # print(result[0])
-    return result[0]
+    return result[0], image_np_arr
 

@@ -1,6 +1,7 @@
 window.onload = function () {
+
+
   var myCanvas = document.getElementById('myCanvas');
-  console.log(myCanvas);
   var ctx = myCanvas.getContext('2d');
 
   // Fill window width and Height
@@ -16,6 +17,7 @@ window.onload = function () {
     var isDown = false;
     var canvasX, canvasY;
     ctx.lineWidth = 20;
+    ctx.lineCap = "round"
 
     $(myCanvas)
       .mousedown(function (e) {
@@ -78,32 +80,70 @@ window.onload = function () {
     false
   );
 
-  var btnSave = document.getElementById('saveBtn');
+  // Change line width
+  // var lineWidthSelect = document.getElementById("linewidth")
+  // lineWidthSelect
+  //   .addEventListener("change", function() {
+  //     ctx.lineWidh = lineWidthSelect.value
+  //     // window.location.reload()
+  //   })
 
-  btnSave.addEventListener('click', function () {
+
+
+  // Reset white board
+  document
+    .getElementById("reset")
+    .addEventListener('click', function () {
+      window.location.reload()
+    })
+
+  // Button A is clicked
+  var btnA = document.getElementById('btnA');
+
+  btnA.addEventListener('click', function () {
     var imgURL = myCanvas.toDataURL('image/png');
-    // GamepadButton.href = imgURL;
-    // console.log(imgURL);
-
-    // var image = myCanvas
-    //   .toDataURL('image/png')
-    //   .replace('image/png', 'image/octet-stream'); // here is the most important part because if you dont replace you will get a DOM 18 exception.
-
-    // // window.location.href = image; // it will save locally
-
-    // window.open(image, 'toDataURL() image', 'width=600, height=200');
 
     axios
-      .post('/predict', {
+      .post('/', {
         imgURL: imgURL,
+        scenario: "A", // Scenario A: There is one number on the board
       })
       .then(function (response) {
         // window.location.replace(`/result?model_output=${response['data']}`);
         console.log(response);
-        document.getElementById("result").innerHTML = response.data
+        document.getElementById("result").innerHTML = response.data[0]
+        document.getElementById("imgA").src = response.data[1]
       })
       .catch(function (error) {
         console.log(error);
       });
   });
+
+  // Button B is clicked
+  var btnB = document.getElementById('btnB');
+
+  btnB.addEventListener('click', function () {
+    var imgURL = myCanvas.toDataURL('image/png');
+
+    axios
+      .post('/', {
+        imgURL: imgURL,
+        scenario: "B", // Scenario B: There is two numbers on the board
+      })
+      .then(function (response) {
+        // window.location.replace(`/result?model_output=${response['data']}`);
+        console.log(response);
+        var first = response.data[0]
+        var second = response.data[1]
+        document.getElementById("result").innerHTML = first + second
+        document.getElementById("imgA").src = response.data[2]
+        document.getElementById("imgB").src = response.data[3]
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  });
+
+
+
 };

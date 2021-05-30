@@ -5,40 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Machine Learning</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-
+    /> -->
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
     <script
       type="text/JavaScript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body style="background: lightcyan">
-    <div class="container">
-      <div class="jumbotron text-center">
-        <h1>Machine Learning</h1>
-        <h3>Handwriting reader</h3>
-      </div>
-      <div class="row">
-        <div style="border-width: 2px; border-color: black">
-          <canvas id="myCanvas"></canvas>
-        </div>
-        <div style="background: blue; height: 400px"></div>
-      </div>
-
-      <button type="button" id="saveBtn">
-        <!-- <a href="/result/">Save Image</a> -->
-      </button>
-
-      <div>
-        <h1>result:</h1>
-        <h1 id="result"></h1>
-      </div>
-      <div style="background: green; height: 100px">This is text area</div>
+  <body>
+    <div class="header">
+      <h1>Machine Learning</h1>
+      <h3>Handwriting reader</h3>
     </div>
+    <div class="row">
+      <div class="left heading">
+        White Board
+      </div>
+      <div class="middle" >middle</div>
+      <div class="right heading">
+        Result
+      </div>
+    </div>
+
+    <div class="row">
+      <canvas class="left" id="myCanvas"></canvas>
+      <div class="middle">
+        <button class="btn" type="button" id="reset">Reset</button>
+        <button class="btn" type="button" id="btnA">Read Image</button>
+        <button class="btn" type="button" id="btnB">Divid-Read Image</button>
+      </div>
+      <div class="right" id="result"></div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="left">
+        <label for="linewidth">Line With:</label>
+        <select name="linewidth" id="linewidth">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+        </select>
+      </div>
+    </div>
+ -->
+
+
+    <div class="row" id="img-result">
+
+    </div>
+
+    <img id="imgA" width="200px"/>
+    <img id="imgB" width="200px" />
 
     <script src="../static/js/canvas.js"></script>
   </body>

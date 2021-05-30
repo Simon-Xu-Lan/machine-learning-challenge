@@ -4,7 +4,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
 from base64 import b64decode
 
-model = load_model("mnist_trained.h5")
+model = load_model("./models/mnist_trained.h5")
 
 def predict_image():
     filepath = "./images/simon2.png"

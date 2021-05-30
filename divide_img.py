@@ -5,7 +5,7 @@ from base64 import b64decode
 from array_to_img import transfer_nparray_to_img
 # import sklearn
 
-with open('svc_model.sav', 'rb') as f:
+with open('./models/svc_model.sav', 'rb') as f:
     svc_model = pickle.load(f)
 
 def divide_img(img_url):

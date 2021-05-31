@@ -4,7 +4,7 @@ from array_to_img import transfer_nparray_to_img
 from divide_img import divide_img
 import time
 
-app = Flask(__name__)
+applicaiton = app = Flask(__name__)
 
 
 # @app.route("/", methods=['GET', 'POST'])

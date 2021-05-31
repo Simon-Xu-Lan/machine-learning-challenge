@@ -4,15 +4,14 @@ from array_to_img import transfer_nparray_to_img
 from divide_img import divide_img
 import time
 
-application = Flask(__name__)
+app = Flask(__name__)
 
-@application.route("/")
+@app.route("/")
 def home():
     return render_template("index.html")
 
-@application.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def predict():
-    global result
     req = request.get_json()
     # print(req)
     img_url = req['imgURL']
@@ -30,5 +29,5 @@ def predict():
         return jsonify((str(prediction_A), str(prediction_B), imgA_url, imgB_url))
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    app.run(debug=True)
  

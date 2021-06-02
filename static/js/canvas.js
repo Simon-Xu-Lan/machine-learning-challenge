@@ -113,6 +113,9 @@ window.onload = function () {
         console.log(response);
         document.getElementById("result").innerHTML = response.data[0]
         document.getElementById("imgA").src = response.data[1]
+        document.getElementById("result1").style.display="block"
+        document.getElementById("prediction1").value=response.data[0]
+
       })
       .catch(function (error) {
         console.log(error);
@@ -138,12 +141,66 @@ window.onload = function () {
         document.getElementById("result").innerHTML = first + second
         document.getElementById("imgA").src = response.data[2]
         document.getElementById("imgB").src = response.data[3]
+        document.getElementById("result1").style.display="block"
+        document.getElementById("result2").style.display="block"
+        document.getElementById("prediction1").value=first
+        document.getElementById("prediction2").value=second
       })
       .catch(function (error) {
         console.log(error);
       });
   });
 
+
+  // Save button is clicked
+  var saveBtn1 = document.getElementById("savebtn1")
+  saveBtn1.addEventListener('click', function() {
+    var prediction1 = document.getElementById("prediction1").value
+    var imgURLA = document.getElementById("imgA").src
+    if (saveBtn1.innerHTML !== "SAVED") {
+      axios
+        .post('/', {
+          imgURL: imgURLA,
+          prediction: prediction1,
+          scenario: "SAVE", // Scenario SAVE
+        })
+        .then(function (response) {
+          // window.location.replace(`/result?model_output=${response['data']}`);
+          console.log(response);
+          saveBtn1.innerHTML ="SAVED"
+          saveBtn1.style.background = "darkgray"
+          saveBtn1.style.color ="red"
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  })
+
+  var saveBtn2 = document.getElementById("savebtn2")
+  saveBtn2.addEventListener('click', function() {
+    var prediction2 = document.getElementById("prediction2").value
+    var imgURLB = document.getElementById("imgB").src
+    if (saveBtn2.innerHTML !== "SAVED") {
+      axios
+        .post('/', {
+          imgURL: imgURLB,
+          prediction: prediction2,
+          scenario: "SAVE", // Scenario SAVE
+        })
+        .then(function (response) {
+          // window.location.replace(`/result?model_output=${response['data']}`);
+          console.log(response);
+          saveBtn2.innerHTML ="SAVED"
+          saveBtn2.style.background = "darkgray"
+          saveBtn2.style.color ="red"
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+  })
 
 
 };

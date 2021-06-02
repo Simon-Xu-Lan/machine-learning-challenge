@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Learning</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css" /> -->
+    <script
+      type="text/JavaScript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+      <div class="container">
+          <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Handwriting Image</th>
+                <th scope="col">label</th>
+                <th scope="col">Remove</th>
+            
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                <th scope="row">{{row._id}}</th>
+                <td><img src="{{row.imgURL}}" width="100px" class="img-thumbnail"/></td>
+                <td>{{row.label}}</td>
+                <td><button class="deleteBtn" data-id={{row._id}}>Delete</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+      </div>
+
+    <script src="../static/js/trainset.js"></script>
+
+  </body>

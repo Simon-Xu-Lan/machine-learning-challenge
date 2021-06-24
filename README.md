@@ -1,8 +1,8 @@
 # Handwritting Reader
 ## Introduction
-- Build a canvas using javascipt.
-- The app read the numberimage on the canvas using MINST deep learning model.
-- If there is two number images, the app divides two images using SVC model, then read the image individually.
+- Build a canvas using javascript.
+- The app reads the number image on the canvas using MINST deep learning model.
+- If there are two number images, the app divides two images using the SVC model, and then reads the image individually.
 - User can save the images and target to MongoDB for future machine learning model training.
 
 ## Webpage

@@ -7,8 +7,8 @@
 
 ## Webpage
 
-<img src="images/webpage1.png" src="web page" width="400px">
-<img src="images/webpage2.png" src="web page" width="400px">
+<img src="images/webpage1.png" src="web page" width="1000px">
+<img src="images/webpage2.png" src="web page" width="1000px">
 
 ## Image data processing 
 

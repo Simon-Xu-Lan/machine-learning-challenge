@@ -3,3 +3,4 @@ venv/
 # Images/
 __pycache__
 .idea/
+config.py

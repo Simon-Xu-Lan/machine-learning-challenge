@@ -3,7 +3,6 @@ import tensorflow as tf
 import pickle
 from base64 import b64decode
 from array_to_img import transfer_nparray_to_img
-# import sklearn
 
 with open('./models/svc_model.sav', 'rb') as f:
     svc_model = pickle.load(f)
